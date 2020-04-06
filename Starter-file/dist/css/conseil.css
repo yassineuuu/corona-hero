@@ -51,7 +51,7 @@ header {
       height: 1.5rem;
       font-size: .7rem;
       transition-duration: 0.3s; }
-      header nav button:hover {
+      header nav button:hover, header nav button:focus {
         opacity: .5;
         box-shadow: 0px 2px #2B2B2C; }
       header nav button:active {
@@ -242,10 +242,9 @@ footer {
   justify-items: center;
   align-items: center;
   grid-template-columns: 1fr 1fr;
-  padding: 2em .5rem 0; }
+  padding: 2em .5rem 0rem; }
   @media only screen and (min-width: 1024px) {
     footer {
-      padding: 2rem;
       grid-template-columns: .5fr 1fr 1.5fr; } }
   footer img {
     width: 7vh;
@@ -266,7 +265,7 @@ footer {
       height: 1.5rem;
       font-size: .7rem;
       transition-duration: 0.3s; }
-      footer ul button:hover {
+      footer ul button:hover, footer ul button:focus {
         opacity: .5;
         box-shadow: 0px 2px #2B2B2C; }
       footer ul button:active {
@@ -312,7 +311,7 @@ footer {
       footer .footer__apropos {
         font-size: 120%; } }
   footer .blue {
-    width: 100vw;
+    width: 100%;
     height: 3vh;
     border-radius: 5px 5px 0 0;
     background-color: #1078AD;

@@ -19,9 +19,12 @@
     }
     p{
             font-weight: bold;
-            font-size: 1.1rem;
-            color: $color6;
+            font-size: .8rem;
             margin: auto;
+            @include desktop(){
+                font-size: 1.1rem;
+                color: $color6;
+            }
             
         }
 

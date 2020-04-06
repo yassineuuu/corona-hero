@@ -340,9 +340,12 @@ footer {
         font-size: 170%; } }
   .information p {
     font-weight: bold;
-    font-size: 1.1rem;
-    color: #1A519E;
+    font-size: .8rem;
     margin: auto; }
+    @media only screen and (min-width: 1200px) {
+      .information p {
+        font-size: 1.1rem;
+        color: #1A519E; } }
   .information__advices {
     display: grid;
     grid-template-columns: 1fr 1fr;

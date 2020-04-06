@@ -13,6 +13,9 @@ header{
     align-items: center;
     padding: 0rem 2rem;
     background-image: url(Groupe149.png);
+    width: 100vw;
+    position: fixed;
+    z-index: 2;
     
     img{
         width: 13%;

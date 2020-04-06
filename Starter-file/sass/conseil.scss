@@ -19,7 +19,8 @@
     }
     p{
             font-weight: bold;
-            font-size: .8rem;
+            font-size: 1.1rem;
+            color: $color6;
             margin: auto;
             
         }
@@ -58,6 +59,10 @@
     }
     &__restez{
         padding: 1rem;
+        p{
+            
+            max-width: 500px;
+        }
     }
     &__info{
         display: flex;

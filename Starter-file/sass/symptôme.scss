@@ -39,6 +39,11 @@
         @include desktop(){
             font-size: 200%;
         }
+    }
+    h4{
+        @include laptop(){
+            font-size: 200%;
+        } 
     }      
     p{
         font-size: 1.6rem;

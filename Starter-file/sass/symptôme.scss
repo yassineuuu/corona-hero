@@ -42,7 +42,7 @@
     }
     h4{
         @include laptop(){
-            font-size: 200%;
+            font-size: 150%;
         } 
     }      
     p{
@@ -67,6 +67,12 @@
     div{
         padding: 1rem;
         width: 100%;
+    }
+    button{
+        @include button2();
+        @include desktop(){
+            font-size: 120%;
+        }
     }
    
     

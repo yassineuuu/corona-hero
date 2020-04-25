@@ -21,6 +21,7 @@
     }
 }
 @mixin button2($a:1.3rem,$b:80%) {
+            margin: 1rem auto;
             font-size: $a;
             font-weight: bold;
             background-image: url(btn.png);

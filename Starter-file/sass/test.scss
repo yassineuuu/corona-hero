@@ -1,0 +1,115 @@
+@import "./fichier1.scss";
+@import "./fichier2.scss";
+@import "./header.scss";
+@import "./warning.scss";
+@import "./symptôme.scss";
+@import "./recommandation.scss";
+@import "./footer.scss";
+
+
+.test{
+    text-align: center;
+    &__paging{
+        display: flex;
+        justify-content: space-between;
+        margin: 1rem auto;
+        
+        max-width: 860px;justify-content: space-around;
+        h2{
+            font-size: 1rem;
+        }
+
+        h2::before{
+            content: '';
+            width: 16px;
+            height: 16px;
+            background-color: $color6;
+            position: relative;
+            left: 40%;
+            top: 10%;
+            display: flex;
+            border-radius: 50%;
+            transition-duration: 0.3s;
+            margin-bottom: 2rem;
+
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            left: 12%;
+            top: 5;
+             width: 30px;
+            height: 30px;
+            background-color: #88B7D3;
+            border-radius: 50%;
+            z-index: -1;
+            transition-duration: 0.5s;
+
+        }
+
+        .line{
+            &__left{
+                left:18%;
+                margin: .8rem 2px;
+                border-radius: 30%;
+                width: 29vw;
+                max-width: 200px;
+                height: 5px;
+                background-color: #026534;
+                z-index: -2;
+                position: absolute;
+            }
+            &__right{
+                right:18%;
+                margin: .8rem 2px;
+                border-radius: 30%;
+                width: 29vw;
+                max-width: 200px;
+                height: 5px;
+                background-color: #026534;
+                z-index: -2;
+                position: absolute;
+
+            }
+        }
+    }
+    &__progress{
+        display: flex;
+        align-items: center;
+        background-color: rgb(241, 239, 239);
+        width: 90%;
+        max-width: 960px;
+
+        height: 1.5rem;
+        border-radius: 10px 10px 0 0;
+        margin: 1rem auto 0;
+        #prog{
+            margin: .2rem  .3rem;
+            background-color: $color6;
+            opacity: 0.7;
+            width: 4.2%;
+            height: 1rem;
+            border-radius: 20px;
+            // box-shadow: 0px 2px 5px black;
+        }
+    }
+    &__para{
+        padding: 1rem;
+        background-color: #96C5DC;
+        margin: 0 auto;
+        width: 90%;
+        max-width: 960px;
+        border-radius: 0 0 10px 10px;
+        h3{
+            color: $color6;
+            margin: 2rem;
+        }
+        
+    }
+    &__btn{
+        @include button2();
+        padding: .5rem;
+        max-width: 560px;
+
+    }
+}

@@ -29,7 +29,7 @@ header{
         justify-content: space-between;
         align-items: center;
         @include laptop(){
-            width: 40%;
+            max-width: 360px;
         }
         @include desktop(){
             font-size: 150%;
@@ -51,6 +51,9 @@ header{
         }
         button{
            @include button1();
+           @include tab(){
+               margin-right: 15%;
+           }
         }
     }
 }

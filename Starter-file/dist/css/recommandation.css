@@ -82,6 +82,7 @@
     .section3__test img {
       width: 7vw; }
     .section3__test button {
+      margin: 1rem auto;
       font-size: 1rem;
       font-weight: bold;
       background-image: url(btn.png);

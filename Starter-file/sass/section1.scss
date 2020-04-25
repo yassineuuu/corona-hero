@@ -30,13 +30,14 @@
         }
     }
    &__part2{
-       line-height: 60px;
        align-self: center;
             h3{
             padding: .5rem 4.5rem;
             color: $color1;
             @include tab(){
                 padding: .4rem;
+                line-height: 60px;
+
             }
         }
         img{
@@ -58,6 +59,43 @@
             @include desktop(){
                 font-size: 120%;
             }
+
+        }
+    }
+    .headline{
+        max-width: 520px;
+        display: flex;
+        margin: 2.5rem auto;
+        align-items: center;
+        
+        .circle1{
+            width: 32px;
+            height: 32px;
+            background-color: #88B7D3;
+            border-radius: 50%;
+            z-index: -1;
+            position: relative;
+            left: 1.5rem;
+            transition-duration: 0.5s;
+            
+        }
+        .circle2{
+            width: 16px;
+            height: 16px;
+            background-color: $color2;
+            border-radius: 50%;
+            transition-duration: 0.3s;
+            
+
+        }
+        .line{
+            margin: 0 2px;
+            border-radius: 30%;
+            width: 35vw;
+            max-width: 200px;
+            height: 5px;
+            background-color: #026534;
+            z-index: -2;
 
         }
     }

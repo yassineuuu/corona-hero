@@ -411,14 +411,15 @@ footer {
     max-width: 960px;
     height: 1.5rem;
     border-radius: 10px 10px 0 0;
-    margin: 1rem auto 0; }
+    margin: 1rem auto 0;
+    padding: .5rem; }
     .test__progress #prog {
       margin: .2rem  .3rem;
       background-color: #1A519E;
       opacity: 0.7;
-      width: 4.2%;
       height: 1rem;
-      border-radius: 20px; }
+      border-radius: 20px;
+      box-shadow: 0px 2px 5px black; }
   .test__para {
     padding: 1rem;
     background-color: #96C5DC;
@@ -429,20 +430,27 @@ footer {
     .test__para h3 {
       color: #1A519E;
       margin: 2rem; }
-  .test__btn {
-    margin: 1rem auto;
-    font-size: 1.3rem;
-    font-weight: bold;
-    background-image: url(btn.png);
-    border: none;
-    border-radius: 5px;
-    color: #FFFFFF;
+  .test__buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
     width: 80%;
-    transition-duration: 0.3s;
-    padding: .5rem;
-    max-width: 560px; }
-    .test__btn:hover {
-      opacity: .5;
-      box-shadow: 0px 2px #2B2B2C; }
-    .test__btn:active {
-      transform: scale(0.9); }
+    max-width: 560px;
+    margin: 1rem auto; }
+    .test__buttons button {
+      margin: 1rem auto;
+      font-size: 1.3rem;
+      font-weight: bold;
+      background-image: url(btn.png);
+      border: none;
+      border-radius: 5px;
+      color: #FFFFFF;
+      width: 80%;
+      transition-duration: 0.3s;
+      padding: .5rem;
+      margin: 0 1rem; }
+      .test__buttons button:hover {
+        opacity: .5;
+        box-shadow: 0px 2px #2B2B2C; }
+      .test__buttons button:active {
+        transform: scale(0.9); }

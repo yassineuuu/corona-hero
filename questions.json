@@ -9,7 +9,7 @@
       {
         "id": 2,
         "qst": "Quelle est votre température corporelle ?",
-        "answer": [35,37.7,38.9,39]
+        "answer": []
               },
       {
         "id": 3,

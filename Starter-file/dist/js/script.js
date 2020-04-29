@@ -20,8 +20,8 @@ test.addEventListener('click', function(){
        document.getElementById('q/qs').innerHTML = `${data[i].id}/22`
        document.getElementById('para').innerHTML = `<h4>${data[i].qst}</h4>
                                                    <div class="answer">
-                                                   <div><input type="radio" id="oui"><label for="oui"><h4>${data[i].answer[0]}</h4></label></div>
-                                                   <div><input type="radio" id="non"><label for="non"><h4>${data[i].answer[1]}</h4></label></div>
+                                                   <div><input type="radio" name="qst" id="oui" value="oui"><label for="oui"><h4>${data[i].answer[0]}</h4></label></div>
+                                                   <div><input type="radio" name="qst" id="non" value="non"><label for="non"><h4>${data[i].answer[1]}</h4></label></div>
                                                    </div>`
      
        
@@ -31,7 +31,8 @@ test.addEventListener('click', function(){
         buttons.appendChild(button2).innerHTML = "Précedent";
         document.querySelectorAll('button')[1].setAttribute('id', 'nxt')
         document.querySelectorAll('button')[2].setAttribute('id', 'prev')
-
+        
+        
         const next =document.getElementById('nxt')
         const prev =document.getElementById('prev')
 
@@ -47,21 +48,31 @@ test.addEventListener('click', function(){
 
             switch (i) {
                 case  1:
+                    
                     document.getElementById('q/qs').innerHTML = `${data[i].id}/22`
                     document.getElementById('para').innerHTML = `<h4>${data[i].qst}</h4>
                                                                 <div class="answer">
                                                                 <span><input type="number" name="Q2" id="température" min="34" max="42" placeholder="34 - 42">
                                                                 deg</span>
                                                                 </div>`
-                break;
+                                                                // var selectOption2 = document.getElementById('input[type=number]');
+        
+                                                                // if (selectOption2.value==""){
+                                                                //     alert("Answer the question please")
+                                                                //     return;
+                                                                // }else{
+                                                                //     i++;
+                                                                // }   
+                                                                                            
+                break;                                           
                 case 9:
                     document.getElementById('q/qs').innerHTML = `${data[i].id}/22`
                     document.getElementById('para').innerHTML = `<h4>${data[i].qst}</h4>
                                                                 <div class="answer">
-                                                                <div><input type="radio" id="bien"><label for="bien"><i class="far fa-grin-alt"></i><h4>${data[i].answer[0]}</h4></label></div>
-                                                                <div><input type="radio" id="assez"><label for="assez"><i class="far fa-smile"></i><h4>${data[i].answer[1]}</h4></label></div>
-                                                                <div><input type="radio" id="fatigué"><label for="fatigué"><i class="far fa-grimace"></i><h4>${data[i].answer[2]}</h4></label></div>
-                                                                <div><input type="radio" id="trésfatigué"><label for="trésfatigué"><i class="far fa-tired"></i><h4>${data[i].answer[3]}</h4></label></div>
+                                                                <div><input type="radio" name="qst" id="bien"  value="Bien"><label for="bien"><i class="far fa-grin-alt"></i><h4>${data[i].answer[0]}</h4></label></div>
+                                                                <div><input type="radio" name="qst" id="assez" value="Assez bien"><label for="assez"><i class="far fa-smile"></i><h4>${data[i].answer[1]}</h4></label></div>
+                                                                <div><input type="radio" name="qst" id="fatigué" value="Fatigué(e)"><label for="fatigué"><i class="far fa-grimace"></i><h4>${data[i].answer[2]}</h4></label></div>
+                                                                <div><input type="radio" name="qst" id="trésfatigué" value="Trés fatigué(e)"><label for="trésfatigué"><i class="far fa-tired"></i><h4>${data[i].answer[3]}</h4></label></div>
                                                                 </div>`
                 break;
                 case  10:
@@ -79,6 +90,7 @@ test.addEventListener('click', function(){
                                                                 <span><input type="number" name="Q2" id="poids" min="15" max="300" placeholder="Poids">
                                                                 kg</span>
                                                                 </div>`
+                                                                console.log(document.getElementById('poids').value)
                 break;
                 case  12:
                     document.getElementById('q/qs').innerHTML = `${data[i].id}/22`
@@ -92,30 +104,46 @@ test.addEventListener('click', function(){
                     document.getElementById('q/qs').innerHTML = `${data[i].id}/22`
                     document.getElementById('para').innerHTML = `<h4>${data[i].qst}</h4>
                                                                 <div class="answer">
-                                                                <div><input type="radio" id="oui"><label for="oui"><h4>${data[i].answer[0]}</h4></label></div>
-                                                                <div><input type="radio" id="non"><label for="non"><h4>${data[i].answer[1]}</h4></label></div>
-                                                                <div><input type="radio" id="homme"><label for="homme"><i class="fas fa-male"></i><h4>${data[i].answer[2]}</h4></label></div>
+                                                                <div><input type="radio" name="qst" id="oui" value="oui"><label for="oui"><h4>${data[i].answer[0]}</h4></label></div>
+                                                                <div><input type="radio" name="qst" id="non" value="non"><label for="non"><h4>${data[i].answer[1]}</h4></label></div>
+                                                                <div><input type="radio" name="qst" id="homme" value="homme"><label for="homme"><i class="fas fa-male"></i><h4>${data[i].answer[2]}</h4></label></div>
                                                                 </div>`
                 break;
                 default:
+                   
+                    
                     document.getElementById('q/qs').innerHTML = `${data[i].id}/22`
                     document.getElementById('para').innerHTML = `<h4>${data[i].qst}</h4>
                                                                 <div class="answer">
-                                                                <div><input type="radio" id="oui"><label for="oui"><h4>${data[i].answer[0]}</h4></label></div>
-                                                                <div><input type="radio" id="non"><label for="non"><h4>${data[i].answer[1]}</h4></label></div>
+                                                                <div><input type="radio" name="qst" id="oui" value="oui"><label for="oui"><h4>${data[i].answer[0]}</h4></label></div>
+                                                                <div><input type="radio" name="qst" id="non" value="non"><label for="non"><h4>${data[i].answer[1]}</h4></label></div>
                                                                 </div>`
+                
+
+                
                 break;
             }
         
         }
         next.addEventListener('click', function(){
+            var selectOption = document.querySelector('input[type=radio]:checked');
+            
+                    if(!selectOption){
+                        alert("Answer the question please")
+                        return;
+                    }
+                   
+                        
             i++;
             if(i>=22){
                 i=21
             }
+             
+            
             
             Question();
             
+           
             
             
             function progressBar(){

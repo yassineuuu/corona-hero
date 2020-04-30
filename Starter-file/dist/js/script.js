@@ -1,8 +1,7 @@
 let test = document.getElementById('start');
 const button1= document.createElement('button')
 const button2= document.createElement('button')
-
-
+let answers = [];
 
 var i = 0;
 // PAGE1 DU test
@@ -17,6 +16,7 @@ test.addEventListener('click', function(){
         if (i>=data.length){
             alert("last question")
        }
+       document.querySelector('.circl').style.left='47.4%'
        document.getElementById('q/qs').innerHTML = `${data[i].id}/22`
        document.getElementById('para').innerHTML = `<h4>${data[i].qst}</h4>
                                                    <div class="answer">
@@ -35,9 +35,13 @@ test.addEventListener('click', function(){
         
         const next =document.getElementById('nxt')
         const prev =document.getElementById('prev')
-
+        next.disabled=true;
         //Next question et progress bar
-
+        if(i<=0){
+            prev.style.display="none"
+            
+        }
+        
 
         const progress = document.getElementById('prog').style
         var width = 4;
@@ -125,19 +129,69 @@ test.addEventListener('click', function(){
             }
         
         }
+        document.getElementById('para').addEventListener('change', (e) => {
+
+            
+        
+            if (data[i].type === 'number') {
+        
+        
+        
+        
+        
+        
+                const number = parseFloat(data[i].value)
+        
+                if (number >= data[i].min && number <= data[i].max) {
+        
+                    answers.push(data[i].value)
+                    console.log(answers);
+        
+        
+                    next.disabled = false
+                } else {
+                    next.disabled = true
+        
+                }
+        
+        
+            } else {
+        
+        
+                answers.push(data[i].answer)
+                console.log(answers);
+                next.disabled = false
+            }
+        
+        
+        
+        
+        
+        })
         next.addEventListener('click', function(){
+
+             
             var selectOption = document.querySelector('input[type=radio]:checked');
             
-                    if(!selectOption){
-                        alert("Answer the question please")
-                        return;
-                    }
+                    // if(!selectOption){
+                    //     alert("Answer the question please")
+                    //     return;
+                    // }
                    
                         
             i++;
-            if(i>=22){
+            prev.style.display="block"
+
+            if(i>=21){
                 i=21
+                next.innerHTML="Terminé"
+                next.addEventListener('click', function(){
+                    document.getElementById('para').innerHTML ="TEST FIN";
+                    document.querySelector('.circl').style.left='68;1%'
+
+                })
             }
+            next.disabled=true;
              
             
             
@@ -168,7 +222,8 @@ test.addEventListener('click', function(){
         prev.addEventListener('click', function(){
             i--;
             if(i<=0){
-                i=0
+                prev.style.display="none"
+                
             }
             // document.getElementById('q/qs').innerHTML = `${data[i].id}/22`
             // document.getElementById('para').innerHTML = `<h4>${data[i].qst}</h4>

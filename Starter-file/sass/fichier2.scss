@@ -30,7 +30,9 @@
             color: $white;
             width: $b;
             transition-duration: 0.3s;
-
+            &:disabled{
+                cursor: not-allowed;
+            }
             &:hover{
                 opacity: .5;
                 box-shadow: 0px 2px $black;

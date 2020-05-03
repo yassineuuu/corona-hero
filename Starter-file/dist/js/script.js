@@ -4,19 +4,24 @@ const button2= document.createElement('button')
 let answers = [];
 
 var i = 0;
-// PAGE1 DU test
+
+var result = 0;
+
+
+
+// Test function   (the big one (°o¨) )
 
 test.addEventListener('click', function(){
-    
- const url = 'http://localhost:3000/Questions'
 
+ const url = 'http://localhost:3000/Questions'
     const getQuestio = async function(){ 
+        
         let res = await fetch(url)
         let data =await res.json()
         if (i>=data.length){
             alert("last question")
        }
-       document.querySelector('.circl').style.left='47.4%'
+       document.querySelector('.circl').style.left='48.15%'
        document.getElementById('q/qs').innerHTML = `${data[i].id}/22`
        document.getElementById('para').innerHTML = `<h4>${data[i].qst}</h4>
                                                    <div class="answer">
@@ -36,7 +41,10 @@ test.addEventListener('click', function(){
         const next =document.getElementById('nxt')
         const prev =document.getElementById('prev')
         next.disabled=true;
+        
+
         //Next question et progress bar
+
         if(i<=0){
             prev.style.display="none"
             
@@ -44,9 +52,14 @@ test.addEventListener('click', function(){
         
 
         const progress = document.getElementById('prog').style
+
         var width = 4;
         
         progress.width=width+"%";
+
+
+       //switch function
+
         function Question(){
                 
 
@@ -59,14 +72,7 @@ test.addEventListener('click', function(){
                                                                 <span><input type="number" name="Q2" id="température" min="34" max="42" placeholder="34 - 42">
                                                                 deg</span>
                                                                 </div>`
-                                                                // var selectOption2 = document.getElementById('input[type=number]');
-        
-                                                                // if (selectOption2.value==""){
-                                                                //     alert("Answer the question please")
-                                                                //     return;
-                                                                // }else{
-                                                                //     i++;
-                                                                // }   
+                                                                 
                                                                                             
                 break;                                           
                 case 9:
@@ -91,7 +97,7 @@ test.addEventListener('click', function(){
                     document.getElementById('q/qs').innerHTML = `${data[i].id}/22`
                     document.getElementById('para').innerHTML = `<h4>${data[i].qst}</h4>
                                                                 <div class="answer">
-                                                                <span><input type="number" name="Q2" id="poids" min="15" max="300" placeholder="Poids">
+                                                                <span><input type="number" name="Q2" id="poids" min="35" max="300" placeholder="Poids">
                                                                 kg</span>
                                                                 </div>`
                                                                 console.log(document.getElementById('poids').value)
@@ -100,7 +106,7 @@ test.addEventListener('click', function(){
                     document.getElementById('q/qs').innerHTML = `${data[i].id}/22`
                     document.getElementById('para').innerHTML = `<h4>${data[i].qst}</h4>
                                                                 <div class="answer">
-                                                                <span><input type="number" name="Q2" id="taille" min="140" max="300" placeholder="Taille">
+                                                                <span><input type="number" name="Q2" id="taille" min="100" max="300" placeholder="Taille">
                                                                 cm</span>
                                                                 </div>`
                 break;
@@ -127,56 +133,77 @@ test.addEventListener('click', function(){
                 
                 break;
             }
+
+         
         
         }
-        document.getElementById('para').addEventListener('change', (e) => {
 
+        // change detection function
+        document.getElementById('para').addEventListener('change', () => {
             
-        
-            if (data[i].type === 'number') {
-        
-        
-        
-        
-        
-        
-                const number = parseFloat(data[i].value)
-        
-                if (number >= data[i].min && number <= data[i].max) {
-        
-                    answers.push(data[i].value)
-                    console.log(answers);
-        
-        
-                    next.disabled = false
-                } else {
-                    next.disabled = true
-        
-                }
-        
-        
-            } else {
-        
-        
-                answers.push(data[i].answer)
+            if (document.querySelectorAll('input')[0].type === 'radio'){
+                answers.push(document.querySelectorAll('input:checked')[0].defaultValue)
                 console.log(answers);
                 next.disabled = false
+                if (answers[0] === "oui") {
+
+                    result++;
+                }
+                if (answers[7] === 'oui' || answers[8] === 'oui') {
+
+                    result++
+                }
+                
+                
+                if (answers[9] === 'Fatigué(e)' || answers[9] === 'Très fatigué') {
+                    result++
+                }
+                
+                
+                if (answers[13] === 'oui' || answers[14] === 'oui') {
+                
+                    result++
+                }
+                // if (answers.length>=i+1){
+                //     document.querySelector('input').addEventListener('change', function popQuestionR () {
+                //         answers.pop();
+                //         return popQuestionR();
+                //     })
+                // }
+               
+                
             }
         
+            else if (document.querySelectorAll('input')[0].type === 'number') {
+
+                const number = document.querySelector('input').value
+                
+                if (number >= data[i].min && number <= data[i].max) {
         
+                    answers.push(number)
+                    console.log(answers);
+                    next.disabled = false
+                    // if (answers.length>=i+1){
+                    //     document.querySelector('input').addEventListener('change', function popQuestionN () {
+                            
+                    //         answers.pop();
+                    //         return popQuestionN();
+                    //     })
+                    // }
+                } else {
+                    next.disabled = true
+                    
         
+                }
+           
         
+            } 
         
         })
-        next.addEventListener('click', function(){
 
-             
-            var selectOption = document.querySelector('input[type=radio]:checked');
-            
-                    // if(!selectOption){
-                    //     alert("Answer the question please")
-                    //     return;
-                    // }
+        // next question function
+
+        next.addEventListener('click', function(){
                    
                         
             i++;
@@ -186,8 +213,10 @@ test.addEventListener('click', function(){
                 i=21
                 next.innerHTML="Terminé"
                 next.addEventListener('click', function(){
-                    document.getElementById('para').innerHTML ="TEST FIN";
-                    document.querySelector('.circl').style.left='68;1%'
+                    testDone ();
+                    document.querySelector('.circl').style.left='63.2%'
+                    next.style.display="none"
+                    prev.style.display="none"
 
                 })
             }
@@ -196,6 +225,7 @@ test.addEventListener('click', function(){
             
             
             Question();
+            
             
            
             
@@ -216,26 +246,30 @@ test.addEventListener('click', function(){
         })
 
 
-        //button précedet
+        // précedet question function
 
 
         prev.addEventListener('click', function(){
             i--;
+            width-=4.4
             if(i<=0){
-                prev.style.display="none"
                 
+                prev.style.display="none"
+                document.getElementById('q/qs').innerHTML = `${data[i].id}/22`
+            document.getElementById('para').innerHTML = `<h4>${data[i].qst}</h4>
+                                                    <div class="answer">
+                                                    <div><input type="radio" id="oui"><label for="oui"><h4>${data[i].answer1}</h4></label></div>
+                                                    <div><input type="radio" id="non"><label for="non"><h4>${data[i].answer2}</h4></label></div>
+                                                    </div>`
+                                                    progress.width=width+"%";
+                                                    answers = []
             }
-            // document.getElementById('q/qs').innerHTML = `${data[i].id}/22`
-            // document.getElementById('para').innerHTML = `<h4>${data[i].qst}</h4>
-            //                                         <div class="answer">
-            //                                         <div><input type="radio" id="oui"><label for="oui"><h4>${data[i].answer[0]}</h4></label></div>
-            //                                         <div><input type="radio" id="non"><label for="non"><h4>${data[i].answer[1]}</h4></label></div>
-            //                                         </div>`
+           
             Question();
             
             function progressBarBack(){
                 
-                width-=4.4
+                
                 progress.width=width+"%";
                                         
                 if (width<=0){
@@ -258,3 +292,53 @@ test.addEventListener('click', function(){
     
         
 });
+
+
+
+
+
+
+//test done function
+
+function testDone () {
+                if (result === 0) {
+
+                document.getElementById('para').innerHTML = `Votre situation ne relève probablement pas du Covid-19. N’hésitez pas à contacter votre médecin en cas de doute. Vous pouvez refaire le test en cas de nouveau symptôme pour réévaluer la situation. Pour toute information concernant le Covid-19, consulter la page Conseils<hr>
+                Restez chez vous au maximum en attendant que les symptômes disparaissent. Prenez votre température deux fois par jour. Rappel des mesures d’hygiène.`
+                document.getElementById('para').style.fontSize ='22px';
+                document.getElementById('para').style.fontWeight ='bold';
+                document.getElementById('para').style.color ='#787878';
+
+            } else if (result === 1) {
+
+                document.getElementById('para').innerHTML = `Nous vous conseillons de rester à votre domicile et de contacter votre médecin en cas d’apparition de nouveaux symptômes. Vous pourrez aussi utiliser à nouveau l’application pour réévaluer vos symptômes<hr>
+                Restez chez vous au maximum en attendant que les symptômes disparaissent. Prenez votre température deux fois par jour. Rappel des mesures d’hygiène.`
+                document.getElementById('para').style.fontSize = '22px'
+                document.getElementById('para').style.fontWeight = 'bold'
+                document.getElementById('para').style.color = '#787878'
+
+            } else if (result === 2) {
+                resultMessage[0].innerText = `Vous pouvez faire une téléconsultation ou médecin généraliste ou visite à domicile. Appelez le 141 si une gêne respiratoire ou des difficultés importantes pour s’alimenter ou boire pendant plus de 24h apparaissent.<hr>
+                Restez chez vous au maximum en attendant que les symptômes disparaissent. Prenez votre température deux fois par jour. Rappel des mesures d’hygiène.`
+                document.getElementById('para').style.fontSize = '22px'
+                document.getElementById('para').style.fontWeight = 'bold'
+                document.getElementById('para').style.color = '#787878'
+            } else {
+                document.getElementById('para').innerHTML = `Appelez le 141<br> 
+                                            <br> 
+                                            <br>
+                                            Restez chez vous au maximum en attendant que les symptômes disparaissent. Prenez votre température deux fois par jour. Rappel des mesures d’hygiène.`
+                document.getElementById('para').style.fontSize = '42px'
+                document.getElementById('para').style.color = '#d63031'
+                document.getElementById('para').style.fontWeight = 'bold'
+
+
+
+
+
+            }
+}
+
+
+
+

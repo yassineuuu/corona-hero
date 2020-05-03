@@ -91,6 +91,8 @@
       color: #FFFFFF;
       width: 40%;
       transition-duration: 0.3s; }
+      .section3__test button:disabled {
+        cursor: not-allowed; }
       .section3__test button:hover {
         opacity: .5;
         box-shadow: 0px 2px #2B2B2C; }

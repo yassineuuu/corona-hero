@@ -55,17 +55,20 @@
       {
         "id": 11,
         "qst": "Quel est votre âge ? Ceci, afin de calculer un facteur de risque spécifique.",
-        "answer": [15,69,70]
+        "min": 15,
+        "max": 70
               },
       {
         "id": 12,
         "qst": "Quel est votre poids ? Afin de calculer l’indice de masse corporelle qui est un facteur influençant le risque de complications de l’infection.",
-        "answer": [""]
+        "min": 35,
+        "max": 300
       },
       {
         "id": 13,
         "qst": "Quelle est votre taille ? Afin de calculer l’indice de masse corporelle qui est un facteur influençant le risque de complications de l’infection.",
-        "answer": [""]
+        "min": 100,
+        "max": 300
       },
       {
         "id": 14,

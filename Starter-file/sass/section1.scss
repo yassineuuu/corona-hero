@@ -54,8 +54,10 @@
                 font-size: 103%;
             }
         }
-        button{
+        a{
             @include button2();
+            padding: 0 3rem;
+            width: 70%;
             @include desktop(){
                 font-size: 120%;
             }

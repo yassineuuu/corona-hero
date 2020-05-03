@@ -44,7 +44,7 @@
       @media only screen and (min-width: 1200px) {
         .section1__part2 p {
           font-size: 103%; } }
-    .section1__part2 button {
+    .section1__part2 a {
       margin: 1rem auto;
       font-size: 1.3rem;
       font-weight: bold;
@@ -53,14 +53,18 @@
       border-radius: 5px;
       color: #FFFFFF;
       width: 80%;
-      transition-duration: 0.3s; }
-      .section1__part2 button:hover {
+      transition-duration: 0.3s;
+      padding: 0 3rem;
+      width: 70%; }
+      .section1__part2 a:disabled {
+        cursor: not-allowed; }
+      .section1__part2 a:hover {
         opacity: .5;
         box-shadow: 0px 2px #2B2B2C; }
-      .section1__part2 button:active {
+      .section1__part2 a:active {
         transform: scale(0.9); }
       @media only screen and (min-width: 1200px) {
-        .section1__part2 button {
+        .section1__part2 a {
           font-size: 120%; } }
   .section1 .headline {
     max-width: 520px;

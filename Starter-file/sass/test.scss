@@ -12,15 +12,32 @@
 .test{
     text-align: center;
     &__paging{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        margin: 1rem auto;   
-        max-width: 860px;
+        display: flex;
+        justify-content: space-between;
+          
+        margin-top: 1rem;  
+        width: 90%;
+        max-width: 1200px;
+        @include tab{
+            margin: 2rem auto 0 -5%;
+        }
+        @include laptop{
+            margin: 2rem auto 0 -7%;
+        }
+        @include desktop{
+            margin: 2rem auto 0 -9%;
+        }
+        @include above{
+            margin: 2rem 0 0 9%;
+        }
+        
         h2{
             font-size: 1rem;
+            transform: scale(0.8);
+
         }
 
-        h2::before{
+        h2::after{
             content: '';
             width: 16px;
             height: 16px;
@@ -34,18 +51,16 @@
             margin-bottom: 1.5rem;
 
         }
-        .circl{
-            content: '';
-            position: absolute;;
-            left: 33.1%;
-             width: 30px;
-            height: 30px;
-            background-color: #88B7D3;
-            border-radius: 50%;
-            z-index: -1;
-            transition-duration: 0.5s;
+        
+        #info{
+            transform: scale(1.2);
+            &::after{
+                transform: scale(0.7);
 
+            border: .7rem solid $color4;
+            
         }
+     }
 
        
     }
@@ -79,6 +94,13 @@
         h3{
             color: $color6;
             margin: 2rem;
+        }
+        hr{
+            background-color: $color2;
+            height: 3px;
+            width: 50%;
+            margin: .5rem auto;
+            border: none;
         }
         
     }

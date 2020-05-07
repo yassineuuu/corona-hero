@@ -21,7 +21,9 @@ test.addEventListener('click', function () {
         // if (i >= data.length) {
         //     alert("last question")
         // }
-        document.querySelector('.circl').style.left = '48.15%'
+        document.getElementById('info').removeAttribute('id');
+        document.getElementById('qst').setAttribute('id','info');
+
         document.getElementById('q/qs').innerHTML = `${testQestions[i].id}/22`
         document.getElementById('para').innerHTML = `<h4>${testQestions[i].qst}</h4>
                                                    <div class="answer">
@@ -209,6 +211,7 @@ test.addEventListener('click', function () {
 
             if (i >= 21) {
                 i = 21
+              
                 next.innerHTML = "Terminé"
                 next.addEventListener('click', function () {
                     testDone();
@@ -283,7 +286,7 @@ test.addEventListener('click', function () {
 
     // };
 
-    getQuestio();
+    // getQuestio();
 
 
 
@@ -299,6 +302,8 @@ test.addEventListener('click', function () {
 //test done function
 
 function testDone() {
+    document.getElementById('info').removeAttribute('id');
+    document.getElementById('fin').setAttribute('id','info');
     if (result === 0) {
 
         document.getElementById('para').innerHTML = `Votre situation ne relève probablement pas du Covid-19. N’hésitez pas à contacter votre médecin en cas de doute. Vous pouvez refaire le test en cas de nouveau symptôme pour réévaluer la situation. Pour toute information concernant le Covid-19, consulter la page Conseils<hr>

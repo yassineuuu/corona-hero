@@ -146,6 +146,7 @@ header {
     border-radius: 5px;
     color: #FFFFFF;
     width: 80%;
+    min-width: 200px;
     transition-duration: 0.3s; }
     .section2 button:disabled {
       cursor: not-allowed; }
@@ -250,6 +251,7 @@ header {
       border-radius: 5px;
       color: #FFFFFF;
       width: 40%;
+      min-width: 200px;
       transition-duration: 0.3s; }
       .section3__test button:disabled {
         cursor: not-allowed; }

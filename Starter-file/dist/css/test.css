@@ -146,6 +146,7 @@ header {
     border-radius: 5px;
     color: #FFFFFF;
     width: 80%;
+    min-width: 200px;
     transition-duration: 0.3s; }
     .section2 button:disabled {
       cursor: not-allowed; }
@@ -250,6 +251,7 @@ header {
       border-radius: 5px;
       color: #FFFFFF;
       width: 40%;
+      min-width: 200px;
       transition-duration: 0.3s; }
       .section3__test button:disabled {
         cursor: not-allowed; }
@@ -357,13 +359,27 @@ footer {
 .test {
   text-align: center; }
   .test__paging {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: 1rem auto;
-    max-width: 860px; }
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    width: 90%;
+    max-width: 1200px; }
+    @media only screen and (min-width: 768px) {
+      .test__paging {
+        margin: 2rem auto 0 -5%; } }
+    @media only screen and (min-width: 1024px) {
+      .test__paging {
+        margin: 2rem auto 0 -7%; } }
+    @media only screen and (min-width: 1200px) {
+      .test__paging {
+        margin: 2rem auto 0 -9%; } }
+    @media only screen and (min-width: 1360px) {
+      .test__paging {
+        margin: 2rem 0 0 9%; } }
     .test__paging h2 {
-      font-size: 1rem; }
-    .test__paging h2::before {
+      font-size: 1rem;
+      transform: scale(0.8); }
+    .test__paging h2::after {
       content: '';
       width: 16px;
       height: 16px;
@@ -375,16 +391,11 @@ footer {
       border-radius: 50%;
       transition-duration: 0.3s;
       margin-bottom: 1.5rem; }
-    .test__paging .circl {
-      content: '';
-      position: absolute;
-      left: 33.1%;
-      width: 30px;
-      height: 30px;
-      background-color: #88B7D3;
-      border-radius: 50%;
-      z-index: -1;
-      transition-duration: 0.5s; }
+    .test__paging #info {
+      transform: scale(1.2); }
+      .test__paging #info::after {
+        transform: scale(0.7);
+        border: 0.7rem solid #D0E5F0; }
   .test__progress {
     display: flex;
     align-items: center;
@@ -412,6 +423,12 @@ footer {
     .test__para h3 {
       color: #1A519E;
       margin: 2rem; }
+    .test__para hr {
+      background-color: #F4CF1B;
+      height: 3px;
+      width: 50%;
+      margin: .5rem auto;
+      border: none; }
   .test .answer {
     display: flex;
     flex-wrap: wrap;
@@ -458,6 +475,7 @@ footer {
       border-radius: 5px;
       color: #FFFFFF;
       width: 80%;
+      min-width: 200px;
       transition-duration: 0.3s;
       padding: .5rem;
       width: 30%;

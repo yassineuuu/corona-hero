@@ -1,7 +1,7 @@
 let test = document.getElementById('start');
 const button1 = document.createElement('button')
 const button2 = document.createElement('button')
-let answers = [];
+let answers = {};
 
 var i = 0;
 
@@ -10,10 +10,10 @@ var result = 0;
 
 
 // Test function   (the big one (°o¨) )
+test.addEventListener('click', DemarerLeTeste)
+function DemarerLeTeste () {
 
-test.addEventListener('click', function () {
-
-    const url = 'http://localhost:3000/Questions'
+    // const url = 'http://localhost:3000/Questions'
     // const getQuestio = async function () {
 
     //     let res = await fetch(url)
@@ -144,43 +144,17 @@ test.addEventListener('click', function () {
         document.getElementById('para').addEventListener('change', () => {
 
             if (document.querySelectorAll('input')[0].type === 'radio') {
-                answers.push(document.querySelectorAll('input:checked')[0].defaultValue)
+                answers[testQestions[i].id]=document.querySelectorAll('input:checked')[0].defaultValue
                 console.log(answers);
                 next.disabled = false
-                if (answers[0] === "oui") {
-
-                    result++;
-                }
-                if (answers[7] === 'oui' || answers[8] === 'oui') {
-
-                    result++
-                }
-
-
-                if (answers[9] === 'Fatigué(e)' || answers[9] === 'Très fatigué') {
-                    result++
-                }
-
-
-                if (answers[13] === 'oui' || answers[14] === 'oui') {
-
-                    result++
-                }
-                // if (answers.length>=i+1){
-                //     document.querySelector('input').addEventListener('change', function popQuestionR () {
-                //         answers.pop();
-                //         return popQuestionR();
-                //     })
-                // }
-
-
-            } else if (document.querySelectorAll('input')[0].type === 'number') {
+            } 
+            else if (document.querySelectorAll('input')[0].type === 'number') {
 
                 const number = document.querySelector('input').value
 
                 if (number >= testQestions[i].min && number <= testQestions[i].max) {
 
-                    answers.push(number)
+                    answers[testQestions[i].id]= number
                     console.log(answers);
                     next.disabled = false
                     // if (answers.length>=i+1){
@@ -210,20 +184,29 @@ test.addEventListener('click', function () {
             prev.style.display = "block"
 
             if (i >= 21) {
-                i = 21
-              
+                i=21
                 next.innerHTML = "Terminé"
                 next.addEventListener('click', function () {
                     testDone();
                     document.querySelector('.circl').style.left = '63.2%'
-                    next.style.display = "none"
                     prev.style.display = "none"
-
+                    next.style.display = "none"
+                    // next.innerHTML= "Refaire le Teste"
+                    // next.addEventListener('click',()=>{
+                        
+                    //     width = 0
+                    //     next.innerHTML = "Suivant"
+                    //     result = 0
+                    //     answers = {}
+                    //     DemarerLeTeste();
+                    // })
+                    next.disabled = false;
                 })
+                
             }
             next.disabled = true;
 
-
+          
 
             Question();
 
@@ -263,7 +246,7 @@ test.addEventListener('click', function () {
                                                     <div><input type="radio" id="non"><label for="non"><h4>${testQestions[i].answer2}</h4></label></div>
                                                     </div>`
                 progress.width = width + "%";
-                answers = []
+                answers = {};
             }
 
             Question();
@@ -292,7 +275,8 @@ test.addEventListener('click', function () {
 
 
 
-});
+};
+
 
 
 
@@ -302,6 +286,28 @@ test.addEventListener('click', function () {
 //test done function
 
 function testDone() {
+    if (answers[1] === "oui") {
+
+        result++;
+    }
+    if (answers[8] === 'oui' || answers[9] === 'oui') {
+    
+        result++
+    }
+    
+    
+    if (answers[10] === 'Fatigué(e)' || answers[10] === "Très fatigué(e)") {
+        result++
+    }
+    
+    
+    if (answers[14] === 'oui' || answers[15] === 'oui') {
+    
+        result++
+    }
+
+    
+
     document.getElementById('info').removeAttribute('id');
     document.getElementById('fin').setAttribute('id','info');
     if (result === 0) {
@@ -324,7 +330,7 @@ function testDone() {
 
 
     } else if (result === 2) {
-        resultMessage[0].innerText = `Vous pouvez faire une téléconsultation ou médecin généraliste ou visite à domicile. Appelez le 141 si une gêne respiratoire ou des difficultés importantes pour s’alimenter ou boire pendant plus de 24h apparaissent.<hr>
+        document.getElementById('para').innerHTML = `Vous pouvez faire une téléconsultation ou médecin généraliste ou visite à domicile. Appelez le 141 si une gêne respiratoire ou des difficultés importantes pour s’alimenter ou boire pendant plus de 24h apparaissent.<hr>
                 Restez chez vous au maximum en attendant que les symptômes disparaissent. Prenez votre température deux fois par jour. Rappel des mesures d’hygiène.`
         document.getElementById('para').style.fontSize = '22px'
         document.getElementById('para').style.fontWeight = 'bold'

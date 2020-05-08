@@ -157,14 +157,9 @@ function DemarerLeTeste () {
                     answers[testQestions[i].id]= number
                     console.log(answers);
                     next.disabled = false
-                    // if (answers.length>=i+1){
-                    //     document.querySelector('input').addEventListener('change', function popQuestionN () {
-
-                    //         answers.pop();
-                    //         return popQuestionN();
-                    //     })
-                    // }
-                } else {
+                   
+                } 
+                else {
                     next.disabled = true
 
 
@@ -190,15 +185,16 @@ function DemarerLeTeste () {
                     testDone();
                     document.querySelector('.circl').style.left = '63.2%'
                     prev.style.display = "none"
-                    next.style.display = "none"
-                    // next.innerHTML= "Refaire le Teste"
+                    // next.style.display = "none"
+                    next.innerHTML= "Refaire le Teste"
                     // next.addEventListener('click',()=>{
-                        
-                    //     width = 0
-                    //     next.innerHTML = "Suivant"
+
+                    //     next.innerHTML= "Suivant"
+                    //     i=0
+                    //     progress.width = 0
                     //     result = 0
                     //     answers = {}
-                    //     DemarerLeTeste();
+                    //     // DemarerLeTeste();
                     // })
                     next.disabled = false;
                 })
@@ -286,7 +282,7 @@ function DemarerLeTeste () {
 //test done function
 
 function testDone() {
-    if (answers[1] === "oui") {
+    if (answers[1] === "oui" && answers[2]>=39) {
 
         result++;
     }
@@ -296,7 +292,7 @@ function testDone() {
     }
     
     
-    if (answers[10] === 'Fatigué(e)' || answers[10] === "Très fatigué(e)") {
+    if (answers[10] === 'Fatigué(e)' || answers[10] === 'Trés fatigué(e)') {
         result++
     }
     
@@ -338,8 +334,7 @@ function testDone() {
         document.getElementById('para').style.padding = '2rem';
 
     } else {
-        document.getElementById('para').innerHTML = `<br>
-                                            <h2>Appelez le 141</h2><br> 
+        document.getElementById('para').innerHTML = `<h2>Appelez le 141</h2><br> 
                                             <br>
                                             Restez chez vous au maximum en attendant que les symptômes disparaissent. Prenez votre température deux fois par jour. Rappel des mesures d’hygiène.`
         document.getElementById('para').style.fontSize = '18px'

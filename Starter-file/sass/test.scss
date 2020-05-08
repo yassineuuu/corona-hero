@@ -12,24 +12,17 @@
 .test{
     text-align: center;
     &__paging{
-        display: flex;
-        justify-content: space-between;
-          
-        margin-top: 1rem;  
+        display: grid;
+        // justify-content: space-between;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-self: center;
+        margin: 2rem auto;  
         width: 90%;
-        max-width: 1200px;
-        @include tab{
-            margin: 2rem auto 0 -5%;
-        }
-        @include laptop{
-            margin: 2rem auto 0 -7%;
-        }
-        @include desktop{
-            margin: 2rem auto 0 -9%;
-        }
-        @include above{
-            margin: 2rem 0 0 9%;
-        }
+        max-width: 960px;
+        // @include tab{
+        //     margin: 2rem auto 0 -5%;
+        // }
+      
         
         h2{
             font-size: 1rem;
@@ -43,8 +36,8 @@
             height: 16px;
             background-color: $color6;
             position: relative;
-            left: 40%;
-            top: 10%;
+            left: 45%;
+            // top: 10%;
             display: flex;
             border-radius: 50%;
             transition-duration: 0.3s;
@@ -56,8 +49,8 @@
             transform: scale(1.2);
             &::after{
                 transform: scale(0.7);
-
-            border: .7rem solid $color4;
+                background-color: $color2;
+                border: .7rem solid $color4;
             
         }
      }
@@ -139,6 +132,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            min-width: 100px;
            svg{
                margin-top: .5rem;
            }

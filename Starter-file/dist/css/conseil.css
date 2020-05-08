@@ -218,8 +218,6 @@ header {
       .section3__contact button:hover {
         box-shadow: -2px 2px #2B2B2C;
         transform: scale(1.1); }
-      .section3__contact button:active {
-        transform: scale(0.9); }
     .section3__contact a {
       padding: 1rem;
       color: #FFFFFF;

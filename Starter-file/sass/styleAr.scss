@@ -1,25 +1,36 @@
 @import "./fichier1.scss";
-@import "./fichier2.scss";
-
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: 'Cairo', sans-serif;}
+@import "./fichier2.scss";  
+@import "./header.scss";
+@import "./warning.scss";
+@import "./section1.scss";
+@import "./recommandation.scss";
+@import "./footer.scss";
 
 .section2{
     padding: .5rem;
     text-align: center;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     max-width: 800px;
     margin: auto;
+    grid-template-columns: 1fr;
+    &__symtomes{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        
+        @include tab(){
+            padding: 3rem;
+            grid-column-gap: 5rem;
+    
+    
+        }
+    }
     @include desktop(){
         padding: 2rem 4rem;
     }
     @include tab(){
         padding: 3rem;
-        grid-column-gap: 5rem;
+        // grid-column-gap: 5rem;
 
 
         }
@@ -34,7 +45,7 @@
     }
     h3{
         color:$color1;
-        padding: 1rem 3.5rem;
+        padding: 1rem 1.5rem;
         grid-column: 1/3;
         grid-row: 4/5;
         @include desktop(){

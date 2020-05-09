@@ -71,9 +71,13 @@ function DemarerLeTeste () {
                     document.getElementById('q/qs').innerHTML = `${testQestions[i].id}/22`
                     document.getElementById('para').innerHTML = `<h4>${testQestions[i].qst}</h4>
                                                                 <div class="answer">
-                                                                <span><input type="number" name="Q2" id="température" min="34" max="42" placeholder="34 - 42">
+                                                                <span><input type="number" name="Q2" id="température" min="34" max="42" placeholder="34 - 42" autofocus>
                                                                 deg</span>
                                                                 </div>`
+                                                                    next.disabled = false
+                                                                
+                                                                
+                                                                
 
 
                     break;
@@ -91,7 +95,7 @@ function DemarerLeTeste () {
                     document.getElementById('q/qs').innerHTML = `${testQestions[i].id}/22`
                     document.getElementById('para').innerHTML = `<h4>${testQestions[i].qst}</h4>
                                                                 <div class="answer">
-                                                                <span><input type="number" name="Q2" id="age" min="15" max="100" placeholder="15 - 100">
+                                                                <span><input type="number" name="Q2" id="age" min="15" max="100" placeholder="15 - 100" autofocus>
                                                                 ans</span>
                                                                 </div>`
                     break;
@@ -99,7 +103,7 @@ function DemarerLeTeste () {
                     document.getElementById('q/qs').innerHTML = `${testQestions[i].id}/22`
                     document.getElementById('para').innerHTML = `<h4>${testQestions[i].qst}</h4>
                                                                 <div class="answer">
-                                                                <span><input type="number" name="Q2" id="poids" min="35" max="300" placeholder="Poids">
+                                                                <span><input type="number" name="Q2" id="poids" min="35" max="300" placeholder="Poids" autofocus>
                                                                 kg</span>
                                                                 </div>`
                     console.log(document.getElementById('poids').value)
@@ -108,7 +112,7 @@ function DemarerLeTeste () {
                     document.getElementById('q/qs').innerHTML = `${testQestions[i].id}/22`
                     document.getElementById('para').innerHTML = `<h4>${testQestions[i].qst}</h4>
                                                                 <div class="answer">
-                                                                <span><input type="number" name="Q2" id="taille" min="100" max="300" placeholder="Taille">
+                                                                <span><input type="number" name="Q2" id="taille" min="100" max="300" placeholder="Taille" autofocus>
                                                                 cm</span>
                                                                 </div>`
                     break;
@@ -149,7 +153,7 @@ function DemarerLeTeste () {
                 next.disabled = false
             } 
             else if (document.querySelectorAll('input')[0].type === 'number') {
-
+                
                 const number = document.querySelector('input').value
 
                 if (number >= testQestions[i].min && number <= testQestions[i].max) {

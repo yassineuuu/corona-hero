@@ -98,6 +98,7 @@ function DemarerLeTeste () {
                                                                 <span><input type="number" name="Q2" id="age" min="15" max="100" placeholder="15 - 100" autofocus>
                                                                 ans</span>
                                                                 </div>`
+                                                                next.disabled = false
                     break;
                 case 11:
                     document.getElementById('q/qs').innerHTML = `${testQestions[i].id}/22`
@@ -106,6 +107,7 @@ function DemarerLeTeste () {
                                                                 <span><input type="number" name="Q2" id="poids" min="35" max="300" placeholder="Poids" autofocus>
                                                                 kg</span>
                                                                 </div>`
+                                                                next.disabled = false
                     console.log(document.getElementById('poids').value)
                     break;
                 case 12:
@@ -115,6 +117,7 @@ function DemarerLeTeste () {
                                                                 <span><input type="number" name="Q2" id="taille" min="100" max="300" placeholder="Taille" autofocus>
                                                                 cm</span>
                                                                 </div>`
+                                                                next.disabled = false
                     break;
                 case 19:
                     document.getElementById('q/qs').innerHTML = `${testQestions[i].id}/22`

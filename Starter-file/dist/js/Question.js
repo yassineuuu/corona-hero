@@ -43,7 +43,7 @@ var testQestions = [
             },
     {
       "id": 9,
-      "qst": "Dans les dernières 24 heures, avez-vous noté un manque de souffle inhabituel lorsque vous parlez ou faites un petit effort ?",
+      "qst": "Dans les dernières 24 heures, Avez-vous vu apparaître une gêne respiratoire ou une augmentation de votre gêne respiratoire habituelle ?",
       "answer": ["Oui","Non"]
             },
     {
